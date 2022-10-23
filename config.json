@@ -1,0 +1,38 @@
+{
+	"contexts": {
+		"infrastructure": {
+			"mysql_connection": {
+				"addr": "localhost:3306",
+				"user": "hoffme",
+				"pass": "123456",
+				"db": "sirius"
+			}
+		},
+		"auth": {
+			"service": {
+				"refresh_token_expiration": 600000000000,
+				"access_token_expiration": 2592000000000000
+			},
+			"infrastructure": {
+				"user_repository": {
+					"table_name": "auth_users"
+				},
+				"password": {
+					"cost": 14
+				},
+				"jwt": {
+					"refresh_token_secret": "shhhh",
+					"access_token_secret": "shhhh"
+				}
+			}
+		}
+	},
+	"apps": {
+		"http": {
+			"addr": "localhost:4000"
+		},
+		"websocket": {
+			"addr": "localhost:4001"
+		}
+	}
+}
