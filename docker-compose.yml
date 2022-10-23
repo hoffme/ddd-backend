@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: backend
+    volumes:
+      - ./config.json:/config.json
+    ports:
+      - "4000:4000"
+      - "4001:4001"
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    container_name: database
+    image: mysql
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+    ports:
+      - "3306"

@@ -2,10 +2,10 @@
 	"contexts": {
 		"infrastructure": {
 			"mysql_connection": {
-				"addr": "localhost:3306",
-				"user": "hoffme",
-				"pass": "123456",
-				"db": "sirius"
+				"addr": "mysql:3306",
+				"user": "root",
+				"pass": "root",
+				"db": "db"
 			}
 		},
 		"auth": {
@@ -29,10 +29,10 @@
 	},
 	"apps": {
 		"http": {
-			"addr": "localhost:4000"
+			"addr": "0.0.0.0:4000"
 		},
 		"websocket": {
-			"addr": "localhost:4001"
+			"addr": "0.0.0.0:4001"
 		}
 	}
 }

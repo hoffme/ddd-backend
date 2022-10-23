@@ -15,7 +15,7 @@ import (
 func (a API) RouterAuth(r chi.Router) {
 	r.Post("/signIn", a.AuthSignIn)
 	r.Post("/signOut", a.AuthSignOut)
-	r.Get("/access", a.AuthAccess)
+	r.Post("/access", a.AuthAccess)
 }
 
 func (a API) AuthSignIn(w http.ResponseWriter, r *http.Request) {

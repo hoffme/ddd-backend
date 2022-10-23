@@ -32,9 +32,9 @@ var EventSignOutDefinition = domain.NewEventDefinition[EventSignOutData](EventSi
 const EventAccessType domain.EventType = "event.auth.access"
 
 type EventAccessData struct {
-	CommandId    string `json:"commandId"`
-	RefreshToken string `json:"refreshToken"`
-	AccessToken  string `json:"accessToken"`
+	CommandId   string `json:"commandId"`
+	AccessToken string `json:"accessToken"`
+	ExpiredAt   int64  `json:"expireAt"`
 }
 
 var EventAccessDefinition = domain.NewEventDefinition[EventAccessData](EventAccessType)

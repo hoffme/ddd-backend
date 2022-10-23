@@ -31,9 +31,9 @@ func (s *Service) CommandAccess(ctx context.Context, command busDomain.Command[d
 	}
 
 	event := domain.EventAccessDefinition.CreateEvent(domain.EventAccessData{
-		CommandId:    command.ID,
-		RefreshToken: command.Data.RefreshToken,
-		AccessToken:  accessToken,
+		CommandId:   command.ID,
+		AccessToken: accessToken,
+		ExpiredAt:   expireAt,
 	})
 
 	s.ports.EventBusEmitter.Emit(ctx, event)
